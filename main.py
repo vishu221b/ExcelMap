@@ -1,4 +1,4 @@
-from clientMacrosScript import FieldsMapToFile
+from src import FieldsMapToFile
 
 FIELDS_MAP = {
     'LR ID*': None,
@@ -39,4 +39,4 @@ FIELDS_MAP = {
     'Error Remarks': None
 }
 
-pandu = FieldsMapToFile(file_name='fieldsMap.xlsx', fields_map=FIELDS_MAP)
+pandu = FieldsMapToFile(file_name='fields.xlsx', fields_map=FIELDS_MAP)

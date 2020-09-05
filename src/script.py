@@ -1,5 +1,5 @@
 import pandas
-from clientMacrosScript.exceptions import (
+from .exceptions import (
     InvalidFieldToFileMapException,
     InvalidFileFormatException,
     FileNotFoundException
