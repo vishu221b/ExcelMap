@@ -1,11 +1,13 @@
 from src import FieldsMapToFile
+from gooey import GooeyParser, Gooey
+import os
 
 FIELDS_MAP = {
     'LR ID*': None,
     'Consignor Name*': None,
     'Consignor GSTIN/ PAN': 'CONSIGNOR_GSTIN',
-    'From Detailed Address*': None,
-    'From Pincode*': None,
+    'From Detailed Address*': None,  # {"default": "Domino Printech India LLP,Plot Number-1117, Sector-8, IMT Manesar- Gurgaon"},
+    'From Pincode*': None,  # {"default": 122050},
     'Contact Name*-': None,
     'Contact Phone*-': None,
     'Consignee Name*': 'RECEIVER_NAME',
@@ -39,4 +41,23 @@ FIELDS_MAP = {
     'Error Remarks': None
 }
 
-pandu = FieldsMapToFile(file_name='fields.xlsx', fields_map=FIELDS_MAP)
+DEFAULTS = {'From Detailed Address*': "Domino Printech India LLP,Plot Number-1117, Sector-8, IMT Manesar- Gurgaon",
+            'From Pincode*': 122050}
+
+
+path__curr = os.path.dirname(os.path.realpath(__file__))
+print(path__curr)
+
+
+@Gooey(program_name="Rivigo Format Converter Tool")
+def FieldMapper():
+    parser = GooeyParser(description="Rivigo Excel Format Converter")
+    parser.add_argument('Filename', help="Select the xlsx file to process.", widget='FileChooser')
+    parsed = parser.parse_args()
+    print(parsed.Filename)
+    FieldsMapToFile(file_name=str(parsed.Filename), fields_map=FIELDS_MAP, default_map=DEFAULTS)
+    return "Done."
+
+
+if __name__ == '__main__':
+    FieldMapper()

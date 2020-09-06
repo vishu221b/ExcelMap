@@ -9,6 +9,8 @@ verify_ssl = true
 pandas = "*"
 xlrd = "*"
 openpyxl = "*"
+gooey = "*"
+pyinstaller = "*"
 
 [requires]
 python_version = "3.7"
