@@ -7,7 +7,7 @@ from .exceptions import (
 
 
 class FieldsMapToFile:
-    ALLOWED_EXTENSIONS = ['xlsx']
+    ALLOWED_EXTENSIONS = ['xlsx', 'xls']
 
     def __init__(self, file_name: str, fields_map: dict = None, default_map: dict = None):
         if fields_map is None:
@@ -43,6 +43,7 @@ class FieldsMapToFile:
     def new_file_name(self, file_name: str):
         try:
             df = pandas.read_excel(f'{file_name}')
+            print("DF -" + str(df.head()))
             fieldMapList = [c for c in self._fields_map.keys()]
             self.new_df = pandas.DataFrame(columns=fieldMapList)
             print("FML-", fieldMapList)
