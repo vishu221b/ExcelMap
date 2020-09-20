@@ -3,3 +3,13 @@ files
 *.xlsx
 __pycache__
 **/__pycache__
+11111
+1dist
+*.spec
+build
+dist
+*.ico
+images
+pyinstaller-4.0
+pyinstaller
+.idea

@@ -1,2 +1,1 @@
-from .script import FieldsMapToFile
-from . import exceptions
+from clientMacrosScript.src import exceptions
